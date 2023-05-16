@@ -10,7 +10,7 @@ mask=`jq -r '.mask' config.json`
 
 fast -g -N -p t1_mask.nii.gz && cp -v *.nii.gz ./mask/
 
-if [ ! -f ./mask/t1_mask_seg.niii.gz ]; then
+if [ ! -f ./mask/t1_mask_seg.nii.gz ]; then
 	echo "something went wrong. check logs and derivatives"
 	exit 1
 fi
