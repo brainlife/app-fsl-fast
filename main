@@ -5,7 +5,7 @@
 set -x
 set -e
 
-time singularity exec -e docker://brainlife/fsl:6.0.5 ./segment.sh
+time singularity exec -e docker://brainlife/fsl:6.0.4-patched2 ./segment.sh
 
 # clean up
 if [ ! -f ./mask/mask.nii.gz ]; then
