@@ -2,6 +2,28 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-brainlife.app.461-blue.svg)](https://doi.org/10.25663/brainlife.app.461)
 
 # FSL Fast
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+**Segments a brain-masked T1-weighted image into CSF, gray matter and white matter with FSL FAST, producing hard segmentations and partial-volume maps.**
+
+Applies the brain mask to the T1 with fslmaths and runs FSL fast (-g -N -p), writing the labelled segmentation as mask.nii.gz plus per-tissue binary, probability and partial-volume images. Use it for tissue masks or partial-volume estimates.
+
+Run it on brainlife.io: [https://doi.org/10.25663/brainlife.app.771](https://doi.org/10.25663/brainlife.app.771)
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `anat` | `neuro/anat/t1w` | yes | T1-weighted image. Must be on the same voxel grid as the brain mask. |
+| `mask` | `neuro/mask` (anat, brain) | yes | Brain mask of the T1, used to skull-strip it before FAST. |
+
+| Output | Datatype | Description |
+|---|---|---|
+| `mask` | `neuro/mask` | Tissue segmentation (mask.nii.gz) plus CSF/GM/WM-seg, -probseg and -pveseg images. |
+
+Runtime: container `brainlife/fsl:6.0.4-patched2`; 4 CPUs; 0.5 h walltime.
+
+<!-- brainlife-app:end -->
+
 This app will generate tissue type semgentations using fsl fast.
 
 ### Authors 
