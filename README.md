@@ -10,7 +10,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -20,20 +20,20 @@ Applies the brain mask to the T1 with fslmaths and runs FSL fast (-g -N -p), wri
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/anat/t1w` · `neuro/mask` |
-| 📤 **Outputs** | `neuro/mask` |
-| 🐳 **Container** | `brainlife/fsl:6.0.4-patched2` |
-| ⚙️ **Resources** | 4 CPUs · 0.5 h walltime |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.771](https://doi.org/10.25663/brainlife.app.771) |
+| **Inputs** | `neuro/anat/t1w` · `neuro/mask` |
+| **Outputs** | `neuro/mask` |
+| **Container** | `brainlife/fsl:6.0.4-patched2` |
+| **Resources** | 4 CPUs · 0.5 h walltime |
+| **Run it** | [doi.org/10.25663/brainlife.app.771](https://doi.org/10.25663/brainlife.app.771) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `anat` | `neuro/anat/t1w` | yes | T1-weighted image. Must be on the same voxel grid as the brain mask. |
 | `mask` | `neuro/mask` (anat, brain) | yes | Brain mask of the T1, used to skull-strip it before FAST. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
@@ -41,15 +41,15 @@ Applies the brain mask to the T1 with fslmaths and runs FSL fast (-g -N -p), wri
 
 <!-- brainlife-app:end -->
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/brainlife.app.771](https://doi.org/10.25663/brainlife.app.771), choose a T1-weighted image (`neuro/anat/t1w`) and its brain mask (`neuro/mask` tagged `anat` and `brain`) from your project, and press **Execute**. The App writes a `neuro/mask` dataset tagged `fsl_fast` and `tissue_types` to your project. Use it for tissue masks or partial-volume estimates.
 
 The T1 and the brain mask must be on the same voxel grid. The App applies the mask to the T1 with `fslmaths -mas` and runs `fast -g -N -p` (separate binary images per tissue, no bias-field correction output, probability maps).
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqlang.github.io/jq/). The App runs in the `brainlife/fsl:6.0.4-patched2` container.
 
@@ -69,7 +69,7 @@ You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqla
    ./main
    ```
 
-## 📦 Outputs
+## Outputs
 
 ```text
 mask/
@@ -81,11 +81,11 @@ mask/
 
 The remaining FAST outputs (for example the mixel type and restored image) are kept in `mask/` with their original FAST names.
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 - **`something went wrong. check logs and derivatives`**: FAST did not produce a segmentation. Check that the T1 and the mask are aligned and on the same grid, and that the mask is not empty.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -95,11 +95,11 @@ The remaining FAST outputs (for example the mixel type and restored image) are k
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 - Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. *Scientific Data* 6:69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 
-## 👥 Authors
+## Authors
 
 - Brad Caron
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -118,6 +118,6 @@ The remaining FAST outputs (for example the mixel type and restored image) are k
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 MIT. FSL is distributed under its own [license](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence).
